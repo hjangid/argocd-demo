@@ -39,9 +39,9 @@ jobs:
           sed  's/DESCRIPTION_HERE/kustomize-Changes/g' pr-comment-template.txt > kustomize-diff.txt
           sed  -e "/DIFF_HERE/{r kustomize-changes.diff" -e "d}" kustomize-diff.txt > kustomize-result.txt
           cat kustomize-result.txt > comment.txt
-      #- name: comment PR
-        #uses: machine-learning-apps/pr-comment@master
-        #env:
-        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #with:
-        #  path: comment.txt
+      - name: comment PR
+        uses: machine-learning-apps/pr-comment@master
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          path: comment.txt
