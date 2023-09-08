@@ -36,8 +36,8 @@ jobs:
            diff -U 7 kustomize-pr.yml kustomize-target.yml > kustomize-changes.diff || true
       - run: |
           wget https://raw.githubusercontent.com/kostis-codefresh/kustomize-github-preview-diff/main/pr-comment-template.txt
-          sed  's/DESCRIPTION_HERE/kustomize-Changes/g' pr-comment-template.txt > kustomize-diff.txt
-          sed  -e "/DIFF_HERE/{r kustomize-changes.diff" -e "d}" kustomize-diff.txt > kustomize-result.txt
+          sed  's/DESCRIPTION_HERE/kustomize-Changes/g' pr-comment-template.txt > kustomizeqa-diff.txt
+          sed  -e "/DIFF_HERE/{r kustomize-changes.diff" -e "d}" kustomizeqa-diff.txt > kustomize-result.txt
           cat kustomize-result.txt > comment.txt
       #- name: comment PR
         #uses: machine-learning-apps/pr-comment@master
