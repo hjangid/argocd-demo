@@ -8,4 +8,4 @@ resources:
 - nginx-svc.yaml
 
 commonAnnotations:
-  channel: Deloitte-2
+  channel: Deloitte-3
